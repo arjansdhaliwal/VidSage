@@ -1,0 +1,4 @@
+APIs:
+
+1   Wikipedia:
+    https://en.wikipedia.org/w/api.php?action=query&format=json&titles=YOUR_TOPIC&prop=extracts&exintro=true
