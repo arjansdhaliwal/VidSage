@@ -26,7 +26,7 @@ public class VidSageMain{
         }
     
         String urlString ="https://en.wikipedia.org/w/api.php?action=query&format=json&titles=" + encodedTopic +"&prop=extracts&exintro=true";
-
+        //String urlString2 = "https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch="+ encodedTopic +"&format=json\n";
         try{
             URL url = new URL(urlString);
 
@@ -61,7 +61,6 @@ public class VidSageMain{
         }catch(Exception e){
             e.printStackTrace();
         }
-
         scanner.close();
     }
 

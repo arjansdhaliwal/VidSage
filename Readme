@@ -1,4 +1,7 @@
 APIs:
 
-1   Wikipedia:
+1   Wikipedia Extract API:
     https://en.wikipedia.org/w/api.php?action=query&format=json&titles=YOUR_TOPIC&prop=extracts&exintro=true
+2   Wikipedia Search API:
+    https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Nehru&format=json
+    
