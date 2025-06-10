@@ -5,3 +5,14 @@ APIs:
 2   Wikipedia Search API:
     https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=Nehru&format=json
     
+    
+VidSage/
+├── src/                
+│   ├── HelloFX.java
+│   └── WikiFetcher.java
+├── bin/                
+│   ├── HelloFX.class
+│   └── WikiFetcher.class
+├── lib/
+│   └── json-20250107.jar
+├── launch.json

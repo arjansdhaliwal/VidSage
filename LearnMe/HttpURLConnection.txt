@@ -1,0 +1,51 @@
+HttpURLConnection is another class just like URL -- it's part of the same Java toolbox (java.net.package). It is a sub-class of URLConnection. It
+is used for HTTP connections.
+
+By casting to HttpURLConnection, you're unlocking a toolbox of HTTP features that a generic connection doesn’t give you.
+There are the tools that HttpURLConnection provides a coder with:
+
+| Method                               | What it does                                                           |
+| ------------------------------------ | ---------------------------------------------------------------------- |
+| `setRequestMethod("GET")`            | Set the type of HTTP request (`GET`, `POST`, etc.)                     |
+| `getResponseCode()`                  | Get the HTTP status code (e.g., 200 OK, 404 Not Found)                 |
+| `getInputStream()`                   | Read the actual response body (like article text)                      |
+| `connect()`                          | Manually open the connection (optional if you call `getInputStream()`) |
+| `disconnect()`                       | Close the connection when you're done                                  |
+| `setRequestProperty("key", "value")` | Set HTTP headers (like `User-Agent`)                                   |
+| `setDoOutput(true)`                  | Used for POST requests when you want to send data                      |
+
+
+ANALOGY
+URL: Knows the address of the house you want to visit
+HttpURLConnection: The phone call or door knock to that house saying: "Hey, I am here -- can we talk?"
+
+So,
+URL url = new URL(...);                                                                 // You have the address
+HttpURLConnection connection = (HttpURLConnection) wikiURL.openConnection();            // You knock and open the line
+
+Ques. What is HttpURLConnection?
+It is a class in Java used to:
+-   Connect to websites
+-   Send/Receive data using HTTP (web requests)
+-   Read response codes, headers, and body 
+
+Ques. Explain the syntax - HttpURLConnection connection = (HttpURLConnection) url.openConnection(); 
+Why is it not like - HttpURLConnection url = new HttpURLConnection(...);
+-   It is because- it is abstract class.
+        What is abstract class?
+        -   An abstract class is like a template, not something you can directly build.
+    Java says: "You can't say new HttpURLConnection(...) because it's incomplete. I (Java) will decide that exact type to give you 
+    based on the website you're connecting to."
+
+    So what really happening here is:
+    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+    -   url.openConnection()
+        This is a method from the URL class. It says: Hey Java, give me the right kind of connection to this URL.
+        This connection might be:
+        -   An HttpURLConnection (for http:// or https://)
+        -   A FileURLConnection (for file://)
+        -   Or something else java decides
+        So Java returns a generic URLConnection. And, we will cast it to whatever url it is.
+        Once you have casted- Java says- "Go ahead. You now have full access to HTTP tools. Use them wisely."
+
+

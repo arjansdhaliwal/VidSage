@@ -3,10 +3,22 @@
   "configurations": [
     {
       "type": "java",
+      "name": "HelloFX",
+      "request": "launch",
+      "mainClass": "HelloFX",
+      "projectName": "VidSage_e4531e29"
+    },
+    {
+      "type": "java",
       "name": "Launch HelloFX",
       "request": "launch",
       "mainClass": "HelloFX",
-      "vmArgs": "--module-path /Volumes/Vault/MyCode/JavaFX/javafx-sdk-24.0.1/lib --add-modules javafx.controls"
+      "projectName": "VidSage",
+      "vmArgs": "--module-path /Volumes/Vault/MyCode/JavaFX/javafx-sdk-24.0.1/lib --add-modules javafx.controls",
+      "classPaths": [
+        "bin",
+        "lib/json-20250107.jar"
+      ]
     }
   ]
 }

@@ -1,0 +1,50 @@
+The URL Class is part of Java.net Package.
+URL stands for Uniform Resource Locator, which means: A text that tells us where something is on the internet.
+
+Java wraps the text into smart object that understands:
+-   How to connect to it
+-   What its parts are
+-   How to use it safely in your code
+
+import java.net.URL;
+This tells java: I want to use your build-in class that knows how to handle web addresses.
+
+Ques. What does the URL class do?
+-   It takes the web address string like: "https://en.wikipedia.org/wiki/Canada", and turns into an object that can do smart things like:
+        Method                              What it tells you
+        getProtocol()                       "https"
+        getHost()                           "en.wikipedia.org"
+        getPath()                           "/wiki/Canada"
+        getQuery()                          "null (only appears if URL has ?key=value)
+        openConnection()                    Opens a door so you can start talking to the site
+
+-   Code Example
+import java.net.URL;
+
+pulbic class TestURL{
+    public static void main(String[] args) throws Exception{
+        URL url = new URL ("https://en.wikipedia.org/wiki/Canada");
+
+        System.out.println("Protocol: " + url.getProtocol());
+        System.out.println("Host: " + url.getHost());
+        System.out.println("Path: " + url.getPath())l=;
+    }
+}
+
+Output-
+Protocol: https
+Host: en.wikipedia.org
+Path: /wiki/Canada
+
+So you're not just storing text — you're storing a real, dissectable address.
+
+Ques. URL url = new URL(String);
+-   The string we have which is url. The system does not know already that it is Url. To let the system know we need to pass that String, so 
+Java can know that it is url not a simple string. After passing string from this class, Java will be easily to dessect the url and can know
+what is protocol, what is host and all needed little things.
+
+Ques. openConnection(); What is it?
+If your URL is:
+-   http://... or https://... -> It gives you a connection to a website
+-   file://... -> It gives you a conection to a file
+-   ftp://... -> It gives you a connection to an FTP server 

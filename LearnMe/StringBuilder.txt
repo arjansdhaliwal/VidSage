@@ -1,0 +1,23 @@
+StringBuilder is a Java Class used to build a long String efficiently.
+It is like a notebook where you keep adding pages of text as you read them.
+Much better than using String + String repeatedly, because that creates multiple string copies in memory (whic is slow and wastefull).
+
+Why we need it?
+We are reading the response line by line using BufferedReader. Each line contains part of the JSON data. We want to combiine all the lines 
+into one complete string. StringBuilder is the perfect tool for this.
+
+Simple Visual:
+Before reading:
+
+Simple visual:
+Before reading:
+        responseBuilder = ""
+        Line 1: "{"
+        Line 2:   "  \"query\" {"
+        Line 3:     "     ..."
+After reading:
+        responseBuilder = "{\n   \"query\" {\n     ..."
+
+BAD PRACTICE:
+String response = "";
+response += reader.readLine(); 
