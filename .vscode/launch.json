@@ -5,6 +5,13 @@
       "type": "java",
       "name": "HelloFX",
       "request": "launch",
+      "mainClass": "main.HelloFX",
+      "projectName": "VidSage_e4531e29"
+    },
+    {
+      "type": "java",
+      "name": "HelloFX",
+      "request": "launch",
       "mainClass": "HelloFX",
       "projectName": "VidSage_e4531e29"
     },

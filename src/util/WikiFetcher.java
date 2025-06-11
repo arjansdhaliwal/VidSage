@@ -1,3 +1,5 @@
+package util;
+
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.HttpURLConnection;
@@ -8,9 +10,11 @@ import org.json.JSONObject;
 
 public class WikiFetcher{
     public static String fetchData(String topic){
-        //Wikipedia's public RESTful API.
-        String url = "https://en.wikipedia.org/w/api.php?action=query&format=json&titles=" + topic + "&prop=extracts&exintro=true";
         try {
+        String normalizedTopic = topic.substring(0, 1).toUpperCase() + topic.substring(1).toLowerCase();
+        //Wikipedia's public RESTful API.
+        String encodedTopic = java.net.URLEncoder.encode(normalizedTopic, "UTF-8"); 
+        String url = "https://en.wikipedia.org/w/api.php?action=query&format=json&titles=" + encodedTopic + "&prop=extracts&exintro=true";
             URL wikiURL = new URL(url);
             URLConnection genericConnection = wikiURL.openConnection();
             HttpURLConnection connection = (HttpURLConnection) genericConnection;
@@ -50,10 +54,13 @@ public class WikiFetcher{
             JSONObject pagesObject = queryObject.getJSONObject("pages");
             String pageId = pagesObject.keys().next();
             JSONObject page = pagesObject.getJSONObject(pageId);
+            if(!page.has("extract")){
+                return "No such topic as '" + encodedTopic +"'.";
+            }
             String extractText = page.getString("extract");
 
             String plainText = stripHTML(extractText).stripLeading();
-            System.out.println("\nGot the Data! Nice Topic!!" + topic);
+            System.out.println("\nGot the Data! Nice Topic!! " + encodedTopic);
             System.out.println("\nInternal Print: \n" + plainText);
             return plainText;
         }catch(Exception e){
@@ -61,7 +68,10 @@ public class WikiFetcher{
         }
     }
     public static String stripHTML(String htmlString){
-            return htmlString.replaceAll("<[^>]*>", "");
+            return htmlString
+                .replaceAll("<[^>]*>", "")
+                .replaceAll("\\n{2,}", "\n")
+                .strip();
     }
 }
 

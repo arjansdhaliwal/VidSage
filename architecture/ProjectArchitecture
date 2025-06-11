@@ -1,0 +1,43 @@
+VIDSAGE
+|--- .vscode/
+|--- architecture/
+|--- bin/
+|--- learnme/
+|--- lib/
+|--- src/
+|--- Readme
+
+.vscode/
+|--- launch.jso
+
+architecture/
+|--- ProjectArchitecture
+
+bin/
+|--- HelloFX.class
+|--- WikiFetcher.class
+
+learnme/
+|--- HttpURLConnection.txt
+|--- StringBuilder.txt
+|--- URL.txt
+
+lib/
+|--- json-20250107.jar
+
+src/
+|--- assets/
+        |--- Fonts/
+                |--- Simanja/
+                        |--- Simanja.otf
+                        |--- Simanja.ttf
+        |--- Images
+|--- main/
+        |--- HelloFX.java                   ← Entry only
+        |--- LayoutBuilder.java    
+        |--- Scene1Builder.java
+        |--- Scene2Builder.java 
+|--- style/
+        |--- StyleHelper.java               ← CSS styles + fonts
+|--- util/
+        |--- WikiFetcher.java               ← Fetch logic
